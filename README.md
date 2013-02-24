@@ -82,7 +82,7 @@ And an example:
 
 Some projects from which I took the code and inspiration, thanks!
 
- - [symfony-vagrant](https://github.com/jedi4ever/veewee)
+ - [symfony-vagrant](https://github.com/simshaun/symfony-vagrant)
  - [veewee](https://github.com/jedi4ever/veewee)
  - Chef Cookbooks: look for README.md inside each directories' for details.
 
