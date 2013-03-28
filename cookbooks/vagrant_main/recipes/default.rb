@@ -3,6 +3,8 @@ node.set["apache"]["group"] = "vagrant"
 node.set['mysql']['server_root_password'] = "root"
 node.set['mysql']['server_debian_password'] = "root"
 node.set['mysql']['server_repl_password'] = "root"
+node.set['mysql']['bind_address'] = "127.0.0.1"
+node.set['mysql']['allow_remote_root'] = "1"
 
 include_recipe "apt"
 
