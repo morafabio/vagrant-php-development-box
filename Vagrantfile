@@ -62,7 +62,7 @@ Vagrant::Config.run do |config|
   # folder, and the third is the path on the host to the actual folder.
   # config.vm.share_folder("web-app", "/home/vagrant/web-app", "../", :owner => "vagrant")
   web_apps.each do |id, web_app|
-    config.vm.share_folder(id, web_app["guest_project_folder"], web_app["host_project_folder"], :owner => "vagrant")
+    config.vm.share_folder(id, web_app["guest_project_folder"], web_app["host_project_folder"], :nfs => true)
   end
 
   config.vm.provision :chef_solo do |chef|
