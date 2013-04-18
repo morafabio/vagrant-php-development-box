@@ -1,8 +1,12 @@
 node.set["apache"]["user"]  = "vagrant"
 node.set["apache"]["group"] = "vagrant"
+
 node.set['mysql']['server_root_password'] = "root"
 node.set['mysql']['server_debian_password'] = "root"
 node.set['mysql']['server_repl_password'] = "root"
+
+node.set['mysql']['bind_address'] = node[:app][:ip]
+node.set['mysql']['allow_remote_root'] = "1";
 
 include_recipe "apt"
 
@@ -61,7 +65,6 @@ php_pear "mongo" do
   action :install
 end
 
-# Gems
 gem_package "less"
 gem_package "sass"
 gem_package "compass"
@@ -95,6 +98,15 @@ end
 
 apache_site "000-default" do
   enable false
+end
+
+node[:app][:web_apps].each do |identifier, app|
+  web_app identifier do
+    server_name app[:server_name]
+    server_aliases app[:server_aliases]
+    docroot app[:guest_docroot]
+    php_timezone app[:php_timezone]
+  end
 end
 
 web_app "localhost" do

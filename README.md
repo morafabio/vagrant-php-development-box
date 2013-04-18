@@ -20,7 +20,7 @@ A Vagrant project which aims you to get a feature rich **PHP** development box (
 
     `git clone git://github.com/morafabio/vagrant-php-development-box.git`
 
-3. Edit the **Vagrantfile** and customize it as you need
+3. Edit the **Vagrantfile.sample** and customize it as you need. Save it as **Vagrantfile**.
 
 4. Run `vagrant up` to provision it, should take a few minutes.
 

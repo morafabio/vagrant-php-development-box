@@ -1,2 +1,4 @@
 .vagrant
+.git
+Vagrantfile
 .DS_Store

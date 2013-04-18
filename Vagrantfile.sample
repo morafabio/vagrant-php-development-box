@@ -17,13 +17,21 @@
 php_timezone_cli = "Europe/Rome"
 
 web_apps = {
-  "project1" => {
-    "host_project_folder"  => "../",
-    "guest_project_folder" => "/home/vagrant/web-app",
-    "guest_docroot"        => "/home/vagrant/web-app/web",
-    "server_name"          => "localhost",
-    "server_aliases"       => ["*.localhost"],
+  "site1" => {
+    "host_project_folder"  => "../web-app-1/",
+    "guest_project_folder" => "/home/vagrant/web-app-1",
+    "guest_docroot"        => "/home/vagrant/web-app-1/web",
+    "server_name"          => "webapp1.test.local",
+    "server_aliases"       => ["*.webapp1"],
     "php_timezone"         => "Europe/Rome"
+  },
+  "site2" => {
+    "host_project_folder"  => "../web-app-2/",
+    "guest_project_folder" => "/home/vagrant/web-app-2",
+    "guest_docroot"        => "/home/vagrant/web-app-2/web",
+    "server_name"          => "webapp2.test.local",
+    "server_aliases"       => [],
+    "php_timezone"         => "America/New_York"
   }
 }
 
@@ -47,6 +55,9 @@ Vagrant::Config.run do |config|
   # Configure VM RAM usage
   # config.vm.memory_size = 512
 
+  # Show the VM screen, for debug
+  # config.vm.boot_mode = :gui
+
   # Assign this VM to a bridged network, allowing you to connect directly to a
   # network using the host's network device. This makes the VM appear as another
   # physical device on your network.
@@ -62,14 +73,19 @@ Vagrant::Config.run do |config|
   # folder, and the third is the path on the host to the actual folder.
   # config.vm.share_folder("web-app", "/home/vagrant/web-app", "../", :owner => "vagrant")
   web_apps.each do |id, web_app|
-    config.vm.share_folder(id, web_app["guest_project_folder"], web_app["host_project_folder"], :owner => "vagrant")
+    # Use vboxfs
+    # config.vm.share_folder(id, web_app["guest_project_folder"], web_app["host_project_folder"], :owner => "vagrant")
+   
+    # Use NFS
+    config.vm.share_folder(id, web_app["guest_project_folder"], web_app["host_project_folder"], :nfs => true)
   end
-
+  
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks"    
     chef.add_recipe "vagrant_main"
     
     chef.json = {
+      "ip" => guest_ip,
       "app" => {
         "web_apps"         => web_apps,
         "php_timezone_cli" => php_timezone_cli
