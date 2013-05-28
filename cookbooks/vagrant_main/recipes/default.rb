@@ -109,12 +109,12 @@ node[:app][:web_apps].each do |identifier, app|
   end
 end
 
-web_app "localhost" do
-  server_name node[:app][:server_name]
-  server_aliases node[:app][:server_aliases]
-  docroot node[:app][:docroot]
-  php_timezone node[:app][:php_timezone]
-end
+# web_app "localhost" do
+#  server_name node[:app][:server_name]
+#  server_aliases node[:app][:server_aliases]
+#  docroot node[:app][:docroot]
+#  php_timezone node[:app][:php_timezone]
+# end
 
 group "vboxsf" do
   members 'vagrant'
