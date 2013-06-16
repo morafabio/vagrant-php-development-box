@@ -76,7 +76,7 @@ And an example:
    - Reorganize the chef cookbook provisioning strategy, in order to get the latest recipes version.
    - A CentOS version and a 32 bit edition: make the base box compatibile with other O.S..
    - *VirtualBox Guest Additions* should be easily upgradable.
-   - Workaround the `vboxsf` [cache bug](https://forums.virtualbox.org/viewtopic.php?f=3&t=33201)
+   - ~~Workaround the `vboxsf` [cache bug] (https://forums.virtualbox.org/viewtopic.php?f=3&t=33201)~~
 
 ## Credits
 
