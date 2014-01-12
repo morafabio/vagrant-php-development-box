@@ -1,6 +1,13 @@
 Vagrant PHP Development Box
 ========================
 
+## Looking for PR :)!!!
+
+> I had no more time to keep the box updated, so **the build is broken!**
+> 
+> You can still run it against Vagrant 1.x, however could be a good idea to upgrade it.
+> So, I'm looking for a mantainer! And free to send me any PR!
+
 ## Project Overview
 
 A Vagrant project which aims you to get a feature rich **PHP** development box (VM). It provides a quite good number of tools and libraries, including those related to the *latest technologies*. The box is based on a fresh **Ubuntu 12.04** built using [veewee](https://github.com/jedi4ever/veewee) and provisioned by **Vagrant** via *Chef*.
@@ -72,13 +79,18 @@ And an example:
   2. Run `vagrant provision`.
 
 ## To Do
-  
+
+   - [!!!] Fix the box in order to run the latest Vagrant stable version.
+   - [!!] Update the Linux basebox with a fresh veewee generation. 
+   - [!!] Update recipes.
    - Reorganize the chef cookbook provisioning strategy, in order to get the latest recipes version.
-   - A CentOS version and a 32 bit edition: make the base box compatibile with other O.S..
+   - A CentOS version and a 32 bit edition: make the base box compatibile with other O.S...?
    - *VirtualBox Guest Additions* should be easily upgradable.
    - ~~Workaround the `vboxsf` [cache bug] (https://forums.virtualbox.org/viewtopic.php?f=3&t=33201)~~
 
 ## Credits
+
+Fabio Mora 2013, [fabiomora.com](http://fabiomora.com).
 
 Some projects from which I took the code and inspiration, thanks!
 
