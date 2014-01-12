@@ -6,7 +6,7 @@ Vagrant PHP Development Box
 > I had no more time to keep the box updated, so **the build is broken!**
 > 
 > You can still run it against Vagrant 1.x, however could be a good idea to upgrade it.
-> So, I'm looking for a mantainer! And free to send me any PR!
+> Would you like to maintain this project? Feel free to send me a PR!
 
 ## Project Overview
 
